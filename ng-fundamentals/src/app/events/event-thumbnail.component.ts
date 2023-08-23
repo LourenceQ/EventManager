@@ -3,7 +3,7 @@ import { Component, Input } from "@angular/core";
 @Component({
     selector: 'event-thumbnail',
     template: `
-    <div class="well hoverwell thunbnail">
+    <div class="well hoverwell thumbnail">
       <h2>{{event.name}}</h2>
         <div>Date: {{event.date}}</div>
         <div>Time: {{event.time}}</div>
@@ -14,9 +14,10 @@ import { Component, Input } from "@angular/core";
         </div>
     </div>
     `,
-    styles:[`
-    .pad-left { margin-left: 10px; }
-    .well div { color: #bbb; }
+    styles: [`
+      .thumbnail {min-height: 210px;}
+      .pad-left {margin-left:10px;}
+      .well div {color: #bbb;}
     `]
 })
 
