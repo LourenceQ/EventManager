@@ -19,6 +19,7 @@ import { Router } from "@angular/router";
 
 
 export class CreateEventComponent {
+  isDirt: boolean = true
   constructor(private router:Router) {
 
   }
