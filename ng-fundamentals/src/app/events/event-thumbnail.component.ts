@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-
+import { IEvent } from './shared/index'
 @Component({
     selector: 'event-thumbnail',
     template: `
@@ -24,14 +24,14 @@ import { Component, Input } from "@angular/core";
     styles: [`
       .bold { font-weight: bold; }
       .green { color: #003300 !important; }
-      .thumbnail {min-height: 210px;}
-      .pad-left {margin-left:10px;}
-      .well div {color: #bbb;}
+      .thumbnail { min-height: 210px; }
+      .pad-left { margin-left:10px; }
+      .well div { color: #bbb; }
     `]
 })
 
 export class EventThumbnailComponent {
-  @Input() event:any
+  @Input() event: IEvent
 
   getSartTimeStyle(): any {
     if(this.event && this.event.time === '8:00 am')
