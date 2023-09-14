@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
+import { EventService } from "./shared";
 
 
 @Component({
@@ -34,14 +35,16 @@ import { Router } from "@angular/router";
 export class CreateEventComponent {
   newEvent
   isDirt: boolean = true
-  constructor(private router:Router) {
+  constructor(private router:Router, private eventService: EventService) {
 
   }
 
   saveEvent(formValues) {
+    this.eventService.saveEvent(formValues)
+    this.isDirt = false
+    this.router.navigate(['/events'])
     console.log(formValues)
   }
-
 
   cancel() {
     this.router.navigate(['/events'])
