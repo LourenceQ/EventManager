@@ -6,7 +6,7 @@
         <h2>{{event?.name}} </h2>
       </div>
     </div>
-  
+    addSession
     <div class="row">
       <div class="col-md-6">
         <div><strong>Date:</strong> {{event?.date}}</div>
@@ -23,7 +23,19 @@
     </div>
 
     <hr>
+    <div class="row">
+      <div class="col-md-2">
+        <h3 style="margin:0">Sessions</h3>
+      </div>
+
+      <div class="col-md-2">
+        <a (click)="addSession()">Add Session</a>
+      </div>
+
+    </div>
     
-    <session-list [sessions]="event?.sessions"></session-list>
+    <session-list *ngIf="!addMode " [sessions]="event?.sessions"></session-list>
+
+    <create-session *ngIf="addMode" (saveNewSession)="saveNewSession($event)"></create-session>
 
   </div>
