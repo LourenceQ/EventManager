@@ -10,8 +10,9 @@ import {
   , EventRouteActivator
   , EventListResolver
   , CreateEventComponent
-  , CreateSessionComponent,
-  SessionListComponent
+  , CreateSessionComponent
+  , SessionListComponent
+  , DurationPipe
  } from './events/index'
 
 import { EventsAppComponent } from './events-app.component';
@@ -41,6 +42,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     , CreateSessionComponent
     , SessionListComponent
     , CollapsibleWellComponent
+    , DurationPipe
   ], 
   providers: [
     EventService
