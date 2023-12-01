@@ -13,6 +13,7 @@ import {
   , CreateSessionComponent
   , SessionListComponent
   , DurationPipe
+  , UpvoteComponent
  } from './events/index'
 
 import { EventsAppComponent } from './events-app.component';
@@ -52,6 +53,7 @@ let jQuery = window ['$']
     , DurationPipe
     , SimpleModalComponent
     , ModaltriggerDirective
+    , UpvoteComponent
   ], 
   providers: [
     EventService
