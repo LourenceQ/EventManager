@@ -8,7 +8,6 @@ import {
   , EventThumbnailComponent
   , EventService
   , EventDetailsComponent
-  , EventRouteActivator
   , EventListResolver
   , CreateEventComponent
   , CreateSessionComponent
@@ -17,6 +16,7 @@ import {
   , UpvoteComponent
   , VoterService
   , LocationValidator
+  , EventResolver
  } from './events/index'
 
 import { EventsAppComponent } from './events-app.component';
@@ -63,9 +63,9 @@ let jQuery = window ['$']
   providers: [
     EventService
     , { provide: TOASTR_TOKEN, useValue: toastr }
-    , { provide: JQ_TOKEN, useValue: jQuery }
-    , EventRouteActivator
+    , { provide: JQ_TOKEN, useValue: jQuery }    
     , EventListResolver
+    , EventResolver
     , AuthService
     , VoterService
   , {
