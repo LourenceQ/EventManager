@@ -40,10 +40,10 @@ export class CreateEventComponent {
   }
 
   saveEvent(formValues) {
-    this.eventService.saveEvent(formValues)
-    this.isDirt = false
-    this.router.navigate(['/events'])
-    console.log(formValues)
+    this.eventService.saveEvent(formValues).subscribe(() => {
+      this.isDirt = false
+      this.router.navigate(['/events'])
+    })
   }
 
   cancel() {
