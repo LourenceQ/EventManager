@@ -8,15 +8,21 @@ import { catchError } from 'rxjs/operators';
 export class VoterService {
   constructor(private httpClient: HttpClient) {}
 
-  deleteVoter(session: ISession, voterName: string) {
-    session.voters = session.voters.filter((voter) => voter !== voterName);
+  deleteVoter(eventId: number, session: ISession, voterName: string) {
+    session.voters = session.voters.filter((voter) => voter !== voterName)
+
+    const url = `/api/events/${eventId}/sessions/${session.id}/voters/${voterName}`
+
+    this.httpClient.delete(url)
+      .pipe(catchError(this.handleError('addVoter')))
+      .subscribe()
   }
 
   addVoter(eventId: number, session: ISession, voterName: string) {
     session.voters.push(voterName);
 
     const options = { headers: new HttpHeaders({'Content-Type': '/application/json'})}
-    const url = `/api/events/${eventId}/session/%{session.id}/voters/${voterName}`
+    const url = `/api/events/${eventId}/sessions/${session.id}/voters/${voterName}`
     this.httpClient.post(url, {}, options)
       .pipe(catchError(this.handleError('addVoter')))
       .subscribe()
