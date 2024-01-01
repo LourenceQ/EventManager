@@ -1,9 +1,13 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { SessionListComponent } from "./session-list.component";
-import { DebugElement } from "@angular/core";
+import { Component, DebugElement, Input, NO_ERRORS_SCHEMA } from "@angular/core";
 import { AuthService } from "src/app/user/auth.service";
 import { VoterService } from "./voter.service";
 import { DurationPipe } from "../shared";
+import { By } from "@angular/platform-browser";
+import { CollapsibleWellComponent } from "src/app/common";
+import { UpvoteComponent } from "./upvote.component";
+
 
 describe('SessionListComponent', () => {
   
@@ -26,6 +30,9 @@ describe('SessionListComponent', () => {
       providers: [
         { provide: AuthService, useValue: mockAuthService},
         { provide: VoterService, useValue: mockVoterService},
+      ],
+      schemas: [
+        NO_ERRORS_SCHEMA
       ]
     })
 
@@ -57,8 +64,10 @@ describe('SessionListComponent', () => {
 
       fixture.detectChanges()
 
-      expect(element.querySelector('[well-title]').textContent)
-        .toContain('Session 1')
+      // expect(element.querySelector('[well-title]').textContent)
+      //   .toContain('Session 1')
+
+      expect(debugEl.query(By.css('[well-title]')).nativeElement.textContent).toContain('Session 1')
     })
     
   })  
